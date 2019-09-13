@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Josephus Algorithm</title>
+<!--Custom Theme files-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Register Login Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login Signup Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <link rel="stylesheet" type="text/css" href="D:\PROGG\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.css" media="screen" />
+ 
+<style>
+body {padding: 100px;}
+
+</style>
+ 	<script type="text/javascript">
+		
+	 
+		var form = document.getElementById('login')
+var form = document.getElementById('login')
+
+
+    var startArray = [];
+
+function calcwinner() {
+
+    var numberOfPeopletoKill = document.getElementById('numberofpeople').value;
+    numberOfPeopletoKill = parseInt(numberOfPeopletoKill, 10);
+
+while (document.getElementById("killlist").firstChild) {
+    document.getElementById("killlist").removeChild(document.getElementById("killlist").firstChild);
+  }
+
+
+function calcwrounds(numberOfPeopletoKill) {
+
+var actualvalue=numberOfPeopletoKill;
+var startvalue=numberOfPeopletoKill;
+var tinesDivided=0;
+
+for (var i=0; i<numberOfPeopletoKill/2;i++)
+{
+
+if (actualvalue>2)
+{
+actualvalue=actualvalue/2;
+tinesDivided++;
+
+}
+}
+console.log("needed Rounds to kill all:"+tinesDivided);
+return tinesDivided;
+}
+
+document.getElementById("killlist").de
+
+var roundsToCalc=calcwrounds(numberOfPeopletoKill);
+   for (var i = 1; i <= numberOfPeopletoKill; i++) {
+        var person = new Object();
+        person.startzahl = i;
+
+        startArray.push(person);
+      
+        console.log("Startnummer " + person.startzahl);
+        var r=startArray[i-1];
+ 
+
+    }
+
+    var arraylength = startArray.length;
+    console.log(arraylength + " arraylength");
+    var endarray = [];
+ var endarrayTemp = [];
+ for (var i=0; i<roundsToCalc;i++){
+
+ 
+    for (var fuckyou = 0; fuckyou < arraylength; fuckyou++) {
+
+        var temp = fuckyou * 2;
+        if (temp < arraylength - 1) {
+        //	  console.log(temp +"temp");
+            var person = startArray[temp];
+            endarray.push(person);
+    //       console.log("startArray[2].startzahl;"+startArray[2].startzahl);
+   //      console.log("person.startzahl "+person.startzahl);
+  var node = document.createElement("LI");  
+  var killtext=    "Soldier #" + (person.startzahl ) + " killed soldier #"+(startArray[temp+1].startzahl);
+         // Create a <li> node
+var textnode = document.createTextNode(killtext);         // Create a text node
+node.appendChild(textnode);                              // Append the text to <li>
+document.getElementById("killlist").appendChild(node); 
+   console.log("Startzahl Betrachtung Person" + (person.startzahl ) + " killed Person" + (startArray[temp+1].startzahl));
+
+        } else if (temp < arraylength) {
+               endarray.unshift(startArray[temp]);
+
+        }
+
+
+
+    }
+    endarrayTemp=endarray; 
+startArray=endarrayTemp;
+endarray = [];
+arraylength=arraylength/2;
+
+}
+document.getElementById("result").innerHTML="Soldier on position " + startArray[0].startzahl +" has survived.";
+   console.log("Person mit der Startnummer " + startArray[0].startzahl +" hat überlebt.") ;
+ startArray=[];
+}
+
+	</script>	
+<!--//web-fonts-->
+</head>
+<body>
+
+		<h1>Josephus Algorithm </h1>
+			<p>Based on the Josephus Problem</p>
+			<p>Assumed x soldiers stand in a circle, beginning at the first soldier by soldier will kill his neighbour. </p>
+			<p>On which position will you survive as last soldier? </p>
+
+	<!-- main -->
+	<div class="main">
+		<!--login-profile-->
+		
+		<!--login-profile-->
+		<!--signin-form-->
+		<div class="w3">
+			<div class="signin-form profile">
+				<br>
+			 
+				<h3>How many soldiers shall kill each other one by one?</h3>
+				
+				<div class="login-form">
+					 
+						<input type="text" id="numberofpeople" placeholder=" number of soldiers" required="">
+			 
+						<div class="tp">
+							<button style="width:200px;height=100px" class="btn btn-success" value="Calculate Winner" onclick="calcwinner();">Calculate Winner-Position	</button>
+						</div>
+				 
+				</div>
+			</div>
+		</div>
+ 
+		<div class="clear"></div>
+		<!--//signin-form-->	
+	</div>
+	<br>
+ <h3 id="result" placeholder="result" ></h3>
+
+<ul id="killlist">
+</ul>
+ 
+
+
+
+
+
+</body>
+</html>
